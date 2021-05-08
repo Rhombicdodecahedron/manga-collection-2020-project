@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.presentation.MainCtrl">
+    <right>
+        <GridPane prefHeight="650.0" prefWidth="200.0" style="-fx-background-color: #f0a500;" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="212.0" minHeight="0.0" prefHeight="42.666656494140625" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="620.0" minHeight="10.0" prefHeight="607.3333435058594" vgrow="SOMETIMES" />
+            </rowConstraints>
+        </GridPane>
+    </right>
+    <left>
+        <GridPane prefWidth="200.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <GridPane prefHeight="50.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="212.33331298828125" minHeight="0.0" prefHeight="43.333343505859375" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="434.0" minHeight="0.0" prefHeight="22.000030517578125" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="575.9999694824219" minHeight="10.0" prefHeight="575.9999694824219" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Manga Collection" textFill="WHITE" GridPane.halignment="CENTER">
+                            <font>
+                                <Font size="21.0" />
+                            </font>
+                            <GridPane.margin>
+                                <Insets />
+                            </GridPane.margin>
+                        </Label>
+                        <Separator prefWidth="200.0" GridPane.rowIndex="1" />
+                        <GridPane GridPane.rowIndex="2">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="78.33331298828125" minHeight="10.0" prefHeight="78.33331298828125" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="138.33331298828125" minHeight="1.6666259765625" prefHeight="91.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="284.3333740234375" minHeight="10.0" prefHeight="85.66668701171875" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="361.33331298828125" minHeight="10.0" prefHeight="82.6666259765625" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="361.33331298828125" minHeight="10.0" prefHeight="68.3333740234375" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="361.33331298828125" minHeight="10.0" prefHeight="80.6666259765625" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="361.33331298828125" minHeight="10.0" prefHeight="103.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                     <children>
+                        <Label fx:id="nbr_mangas" text="Nbr de mangas :  aucun" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nbr_tomes" text="Nbr de tomes : aucun " textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                        </GridPane>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </GridPane>
+            </children>
+        </GridPane>
+    </left>
+    <center>
+        <TabPane fx:id="tab" prefHeight="605.0" prefWidth="884.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab text="Mangas récemment ajouté">
+                    <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <HBox prefHeight="85.0" prefWidth="880.0">
+                                    <children>
+                                        <Label text="Derniers mangas ajoutés">
+                                            <font>
+                                                <Font size="40.0" />
+                                            </font>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                            <HBox.margin>
+                                                <Insets left="20.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <GridPane fx:id="gridManga" prefHeight="573.0" prefWidth="880.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="223.3333740234375" minWidth="10.0" prefWidth="218.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="222.0" minWidth="10.0" prefWidth="222.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="Tous les mangas">
+                    <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <HBox prefHeight="314.0" prefWidth="880.0">
+                                    <children>
+                                        <GridPane prefHeight="149.0" prefWidth="880.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ComboBox fx:id="liste_genres" onAction="#afficheMangaGenre" prefWidth="150.0" promptText="Genres" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                    <GridPane.margin>
+                                                        <Insets left="20.0" />
+                                                    </GridPane.margin>
+                                                </ComboBox>
+                                                <TextField fx:id="barre_recherche" onKeyReleased="#recherche" prefHeight="25.0" prefWidth="397.0" promptText="Rechercher un manga" GridPane.rowIndex="2">
+                                                    <GridPane.margin>
+                                                        <Insets left="20.0" right="20.0" />
+                                                    </GridPane.margin>
+                                                </TextField>
+                                                <Label alignment="CENTER" text="Tous les mangas">
+                                                    <font>
+                                                        <Font size="40.0" />
+                                                    </font>
+                                                    <GridPane.margin>
+                                                        <Insets left="20.0" />
+                                                    </GridPane.margin>
+                                                    <padding>
+                                                        <Insets top="10.0" />
+                                                    </padding>
+                                                </Label>
+                                                <Label text="Rechercher" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="16.0" />
+                                                    </font>
+                                                    <GridPane.margin>
+                                                        <Insets left="20.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                                <Label text="Tier par" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="16.0" />
+                                                    </font>
+                                                    <GridPane.margin>
+                                                        <Insets left="20.0" />
+                                                    </GridPane.margin>
+                                                </Label>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </HBox>
+                                <ScrollPane fx:id="tousLesMangas" prefHeight="691.0" prefWidth="880.0" />
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="Ajout de manga">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="583.0" prefWidth="880.0">
+                            <children>
+                                <GridPane prefHeight="691.0" prefWidth="879.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="204.0" minHeight="10.0" prefHeight="199.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="285.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="322.33331298828125" minHeight="10.0" prefHeight="163.33331298828125" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="322.33331298828125" minHeight="10.0" prefHeight="87.33331298828125" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="322.33331298828125" minHeight="10.0" prefHeight="97.66668701171875" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="252.33331298828125" minHeight="10.0" prefHeight="94.99993896484375" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <ImageView fitHeight="216.0" fitWidth="1200.0" opacity="0.46" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../resources/images/landing.jpg" />
+                                            </image>
+                                            <viewport>
+                                                <Rectangle2D height="200.0" width="1000.0" />
+                                            </viewport>
+                                            <GridPane.margin>
+                                                <Insets bottom="25.0" />
+                                            </GridPane.margin>
+                                            <effect>
+                                                <DropShadow />
+                                            </effect>
+                                        </ImageView>
+                                        <GridPane prefHeight="54.0" prefWidth="1080.0" GridPane.rowIndex="1">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <GridPane>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.3333740234375" minWidth="10.0" prefWidth="184.66668701171875" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="409.99993896484375" minWidth="10.0" prefWidth="350.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="Titre" GridPane.halignment="RIGHT">
+                                                            <font>
+                                                                <Font size="15.0" />
+                                                            </font>
+                                                            <GridPane.margin>
+                                                                <Insets right="20.0" />
+                                                            </GridPane.margin>
+                                                        </Label>
+                                                        <TextField fx:id="titre" prefHeight="25.0" prefWidth="251.0" GridPane.columnIndex="1">
+                                                            <GridPane.margin>
+                                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                            </GridPane.margin>
+                                                        </TextField>
+                                                    </children>
+                                                    <GridPane.margin>
+                                                        <Insets />
+                                                    </GridPane.margin>
+                                                </GridPane>
+                                                <GridPane GridPane.columnIndex="1">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.3333740234375" minWidth="10.0" prefWidth="200.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.3333740234375" minWidth="10.0" prefWidth="350.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <TextField fx:id="titre_original" prefHeight="25.0" prefWidth="223.0" GridPane.columnIndex="1">
+                                                            <GridPane.margin>
+                                                                <Insets bottom="20.0" left="20.0" top="20.0" />
+                                                            </GridPane.margin>
+                                                        </TextField>
+                                                        <Label text="Titre Original" GridPane.halignment="RIGHT">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                    <GridPane.margin>
+                                                        <Insets right="100.0" />
+                                                    </GridPane.margin>
+                                                </GridPane>
+                                            </children>
+                                        </GridPane>
+                                        <Label text="Ajout de manga" textFill="WHITE">
+                                            <font>
+                                                <Font size="74.0" />
+                                            </font>
+                                            <opaqueInsets>
+                                                <Insets />
+                                            </opaqueInsets>
+                                            <GridPane.margin>
+                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <GridPane GridPane.rowIndex="2">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="414.0" minWidth="10.0" prefWidth="135.66668701171875" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="509.0" minWidth="10.0" prefWidth="125.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="653.3333740234375" minWidth="10.0" prefWidth="204.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="653.3333740234375" minWidth="10.0" prefWidth="316.6666259765625" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <CheckBox fx:id="enCours" mnemonicParsing="false" text="Est en cours ?" GridPane.halignment="CENTER">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </CheckBox>
+                                                <GridPane GridPane.columnIndex="1">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.666748046875" minWidth="10.0" prefWidth="204.3333740234375" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <TextField fx:id="date_sortie" prefHeight="25.0" prefWidth="178.0" promptText="Année de sortie" />
+                                                    </children>
+                                                </GridPane>
+                                                <Button mnemonicParsing="false" onAction="#browseImageManga" prefHeight="25.0" prefWidth="188.0" text="Image de couverture" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" right="30.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                    <TextField fx:id="txt_lien_image_manga" prefHeight="25.0" prefWidth="231.0" GridPane.columnIndex="3">
+                                       <GridPane.margin>
+                                          <Insets right="100.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                            </children>
+                                 <GridPane.margin>
+                                    <Insets left="100.0" />
+                                 </GridPane.margin>
+                                        </GridPane>
+                                        <GridPane prefHeight="292.0" prefWidth="1080.0" GridPane.rowIndex="3">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <TextArea fx:id="synopsis" prefHeight="224.0" prefWidth="958.0">
+                                                    <GridPane.margin>
+                                                        <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
+                                                    </GridPane.margin>
+                                                </TextArea>
+                                            </children>
+                                        </GridPane>
+                                        <GridPane prefHeight="30.0" prefWidth="1080.0" GridPane.rowIndex="6">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Button mnemonicParsing="false" onAction="#creerNouveauManga" style="-fx-background-color: green;" text="Créer" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                                    <font>
+                                                        <Font size="15.0" />
+                                                    </font>
+                                                </Button>
+                                            </children>
+                                        </GridPane>
+                                        <GridPane GridPane.rowIndex="4">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <GridPane>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="genre">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <ComboBox fx:id="liste_genre" prefWidth="150.0" GridPane.columnIndex="1" />
+                                                    </children>
+                                                    <padding>
+                                                        <Insets left="100.0" />
+                                                    </padding>
+                                                </GridPane>
+                                                <GridPane GridPane.columnIndex="1">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="Nouveau genre">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="nouveau_genre" GridPane.columnIndex="1" />
+                                                    </children>
+                                                    <GridPane.margin>
+                                                        <Insets right="100.0" />
+                                                    </GridPane.margin>
+                                                </GridPane>
+                                            </children>
+                                        </GridPane>
+                                        <GridPane GridPane.rowIndex="5">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <GridPane>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="Auteur">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="auteur_nom" promptText="nom" GridPane.columnIndex="1">
+                                                            <GridPane.margin>
+                                                                <Insets right="20.0" />
+                                                            </GridPane.margin>
+                                                        </TextField>
+                                                        <TextField fx:id="auteur_prenom" promptText="prénom" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                            <GridPane.margin>
+                                                                <Insets right="20.0" />
+                                                            </GridPane.margin>
+                                                        </TextField>
+                                                    </children>
+                                                    <GridPane.margin>
+                                                        <Insets left="100.0" />
+                                                    </GridPane.margin>
+                                                </GridPane>
+                                                <GridPane GridPane.columnIndex="1">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="Dessinateur">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="dessinateur_nom" promptText="nom" GridPane.columnIndex="1" />
+                                                        <TextField fx:id="dessinateur_prenom" promptText="prenom" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                    </children>
+                                                    <GridPane.margin>
+                                                        <Insets right="100.0" />
+                                                    </GridPane.margin>
+                                                </GridPane>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Informations manga">
+                    <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox prefHeight="88.0" prefWidth="880.0">
+                           <children>
+                              <Label fx:id="info_titre_manga" text="Informations manga">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <GridPane prefHeight="375.0" prefWidth="880.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ImageView fx:id="info_image_manga" fitHeight="250.0" fitWidth="251.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <image>
+                                    <Image url="@../../resources/manga/cover/default.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <GridPane prefHeight="170.0" prefWidth="390.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Titre original">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <TextField fx:id="info_titre_original" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <Label text="Genre" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label text="Status" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label text="Année de sortie" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label text="Dessinateur" GridPane.rowIndex="4">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <TextField fx:id="info_annee_sortie" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <TextField fx:id="info_genre" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <CheckBox fx:id="info_enCours" mnemonicParsing="false" text="En cours" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </CheckBox>
+                                          <Label text="Auteur" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane prefHeight="49.0" prefWidth="390.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <TextField fx:id="info_dessinateur_nom">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <TextField fx:id="info_auteur_nom" GridPane.columnIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <TextField fx:id="info_dessinateur_prenom" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <TextField fx:id="info_auteur_prenom" GridPane.columnIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                       </children>
+                                    </GridPane>
+                                    <TextArea fx:id="info_synopsis" prefHeight="122.0" prefWidth="370.0">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </TextArea>
+                                    <Button mnemonicParsing="false" onAction="#actionEnregistreModification" style="-fx-background-color: grey;" text="Enregistrer les modifications">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#actionSupprimeManga" style="-fx-background-color: red;" text="Supprimer">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets right="50.0" />
+                                 </GridPane.margin>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                        <TabPane fx:id="tab_tome" prefHeight="229.0" prefWidth="880.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Tomes">
+                                 <content>
+                                    <ScrollPane prefHeight="228.0" prefWidth="880.0">
+                                       <content>
+                                          <GridPane fx:id="gridTome" prefHeight="225.0" prefWidth="866.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <padding>
+                                                <Insets left="50.0" right="50.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </content>
+                            </Tab>
+                            <Tab text="Ajouter un tome">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox prefHeight="41.0" prefWidth="880.0">
+                                             <children>
+                                                <Label text="Nouveau tome">
+                                                   <font>
+                                                      <Font size="22.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <GridPane prefHeight="148.0" prefWidth="880.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <TextField fx:id="numero_tome" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="50.0" right="50.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <Button mnemonicParsing="false" onAction="#browseImageTome" text="Choisir une image de tome" GridPane.halignment="CENTER" />
+                                                <Button mnemonicParsing="false" onAction="#ajouteTome" text="Ajouter" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                <Label text="Numéro du tome" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="txt_lien_image_tome" GridPane.columnIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="50.0" right="50.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                             </children>
+                                             <padding>
+                                                <Insets right="100.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></VBox>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>
